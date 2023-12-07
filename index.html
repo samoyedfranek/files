@@ -1,0 +1,62 @@
+.<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #binary-output {
+            font-weight: bold;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+    <h1>Binary Converter</h1>
+
+    <label for="text-input">Enter Text:</label>
+    <input type="text" id="text-input" oninput="convertTextToBinary()">
+    
+    <p>Binary Representation: <span id="binary-output"></span></p>
+
+    <script>
+        function convertTextToBinary() {
+            var textInput = document.getElementById('text-input').value;
+            var binaryOutput = document.getElementById('binary-output');
+            
+            // Convert each character to binary
+            var binaryResult = Array.from(textInput).map(char => {
+                return char.charCodeAt(0).toString(2).padStart(8, '0');
+            }).join(' ');
+
+            binaryOutput.textContent = binaryResult;
+        }
+    </script>
+</body>
+</html>
